@@ -18,10 +18,10 @@ utils.add_bg_from_local('assets/resize_cover.png')
 
 # Load the ML model in
 with st.spinner('Loading Model...'):
-    heart_pred_model = pickle.load(open('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart_pred_model.sav', 'rb'))
+    heart_pred_model = pickle.load(open('heart_pred_model.sav', 'rb'))
 
 # Load our training data here and calculate the average values of each attributes
-data = pd.read_csv('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart.csv')
+data = pd.read_csv('heart.csv')
 
 healthy_avg = data[data['output'] == 0].mean()
 diseased_avg = data[data['output'] == 1].mean()
