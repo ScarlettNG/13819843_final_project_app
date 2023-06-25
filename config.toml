@@ -1,0 +1,45 @@
+[logger]
+# Level of logging: 'info' or 'debug'.
+level = "info"
+
+[client]
+# Whether to enable st.experimental_getqueryparams.
+enableQueryString = false
+
+[server]
+# List of folders that should not be watched for changes. This impacts both "Run on Save" and @st.cache.
+folderWatchBlacklist = [""]
+
+# Change the type of file watcher used by Streamlit, or turn it off completely.
+fileWatcherType = "auto"
+
+# If false, will attempt to open a browser window on start.
+headless = false
+
+# Immediately share the app in such a way that allows for remote viewing but no collaboration.
+shareSessionState = false
+
+# Port where app is served.
+port = 8501
+
+# Enables support for Cross-Origin Request Sharing (CORS) protection, as described in the section below.
+enableCORS = false
+
+# Enables support for WebSocket Same-Origin policy. If false, that policy is disabled.
+enableWebsocketCompression = true
+
+# If false, prevents Streamlit from automatically rerunning script when file changes.
+runOnSave = true
+
+[theme]
+base = "light"
+primaryColor = "#E694FF"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F0F0"
+textColor = "#FFFFE0"
+font = "sans-serif"
+
+
+[browser]
+# Internet Explorer and older versions of Microsoft Edge don't support current W3C standards.
+gatherUsageStats = false
