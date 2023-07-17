@@ -1,5 +1,5 @@
 from streamlit_option_menu import option_menu
-import pickle
+from joblib import load
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -18,10 +18,10 @@ utils.add_bg_from_local('assets/resize_cover.png')
 
 # Load the ML model in
 with st.spinner('Loading Model...'):
-    heart_pred_model = pickle.load(open('heart_pred_model.sav', 'rb'))
+    heart_pred_model = load('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart_pred_model.joblib')
 
 # Load our training data here and calculate the average values of each attributes
-data = pd.read_csv('heart.csv')
+data = pd.read_csv('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart.csv')
 
 healthy_avg = data[data['output'] == 0].mean()
 diseased_avg = data[data['output'] == 1].mean()
@@ -32,9 +32,9 @@ with st.sidebar:
     st.markdown('This app uses machine learning to predict heart disease. \n')
 
     selected = option_menu('Pages',
-                          ['Heart Disease Prediction', 'About', 'Contact'],
-                           menu_icon= ['hospital', 'information', 'envelope'],
-                           icons= ['balloon-heart', 'info-square', 'envelope'],
+                          ['Heart Disease Prediction', 'About', 'How To Fill', 'Contact'],
+                           menu_icon= ['hospital', 'information', 'eyeglasses', 'envelope'],
+                           icons= ['balloon-heart', 'info-square', 'eyeglasses', 'envelope'],
                            default_index = 0)
     st.markdown(
         'Please fill in the information in the main panel.')
@@ -54,7 +54,6 @@ if (selected == 'Heart Disease Prediction'):
             except ValueError:
                 st.error(f'{input_name} must be a number.')
         return None
-
 
     age = validate_input(st.text_input('Age'), int, 'Age')
     sex = validate_input(st.text_input('Sex (0: Male, 1: Female)'), int, 'Sex')
@@ -163,6 +162,40 @@ if (selected == 'About'):
     </p><p>
     As this project is in its early stages, any feedback or suggestions for improvements 
     are highly welcome.
+    </p>
+    </div>""", unsafe_allow_html=True)
+
+if (selected == 'How To Fill'):
+    st.markdown("""<div style="background-color:LightYellow;color:black;padding:20px">
+    <h2 style ='color:black'>All You Need To Know</h2>
+    <p>
+    Age: Your age in years 
+    </p><p>
+    Sex: Write '0' if you are biological male, and '1' if you are biological female
+    </p><p>
+    Chest Pain Type (cp): This refers to the type of chest pain you have experienced. Please input '1' for typical angina (chest pain related to decreased blood supply to the heart), '2' for atypical angina (chest pain not related to the heart), '3' for non-anginal pain (typically sharp pain unrelated to the heart), or '4' for asymptomatic (no pain).
+    </p><p>
+    Resting Blood Pressure (trtbps): Your usual blood pressure reading. This typically includes two or three numbers.
+    </p><p>
+    Serum Cholesterol (chol): This is the measurement of certain fats in your blood. Please input your latest cholesterol measurement if you have it. The unit for this measurement is mg/dl.
+    </p><p>
+    Fasting Blood Sugar (fbs): Please write '1' if your fasting blood sugar level is greater than 120 mg/dl, and '0' if it is less than that.
+    </p><p>
+    Resting ECG (restecg): This measures your heart's electrical activity. Please input '0' if you have a normal reading, '1' if you have an ST-T wave abnormality, or '2' if you show probable or definite left ventricular hypertrophy if you have the information. 
+    </p><p>
+    Maximum Heart Rate (thalachh): Please input the maximum rate your heart has achieved during peak exercise (This can easily be obtained from your smartwatches).
+    </p><p>
+    Exercise Induced Angina (exng): Please write '1' if you have experienced angina (chest pain) during exercise, and '0' if you have not.
+    </p><p>
+    ST Depression Induced (oldpeak): This is the difference in parts of your electrocardiogram readings before and after you exercise. Please input the difference in millimeters here.
+    </p><p>
+    ST Segment Slope (slp): This is the slope of the peak exercise ST segment in your electrocardiogram. Please input '0' for an upsloping, '1' for a flat slope, and '2' for a downsloping.
+    </p><p>
+    Major Vessels Quantity (caa): This is the number of major vessels colored by fluoroscopy, a type of X-ray. Please input a number from '0' to '3'.
+    </p><p>
+    Thallium Heart Rate (thall): This is a type of blood disorder. Please input '1' if you have a normal form, '2' if you have a fixed defect, or '3' if you have a reversible defect.
+    </p><p>
+    Please fill in the latest result from your recent health check result, otherwise, you can obtain these information from your GP
     </p>
     </div>""", unsafe_allow_html=True)
 
