@@ -18,10 +18,10 @@ utils.add_bg_from_local('assets/resize_cover.png')
 
 # Load the ML model in
 with st.spinner('Loading Model...'):
-    heart_pred_model = load('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart_pred_model.joblib')
+    heart_pred_model = load('heart_pred_model.joblib')
 
 # Load our training data here and calculate the average values of each attributes
-data = pd.read_csv('C:/Users/nguye/OneDrive/Desktop/Heart Disease App Code/heart.csv')
+data = pd.read_csv('heart.csv')
 
 healthy_avg = data[data['output'] == 0].mean()
 diseased_avg = data[data['output'] == 1].mean()
