@@ -5,6 +5,7 @@ import numpy as np
 import streamlit as st
 import utilities as utils
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
 
 # Setting the page icon and name
 st.set_page_config(
@@ -22,6 +23,10 @@ with st.spinner('Loading Model...'):
 
 # Load our training data here and calculate the average values of each attributes
 data = pd.read_csv('heart.csv')
+
+# Initialise StandardScaler
+scaler = StandardScaler()
+scaler.fit(data.drop('output', axis=1))
 
 healthy_avg = data[data['output'] == 0].mean()
 diseased_avg = data[data['output'] == 1].mean()
