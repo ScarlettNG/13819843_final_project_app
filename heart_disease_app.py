@@ -106,6 +106,8 @@ if (selected == 'Heart Disease Prediction'):
                 columns=['age', 'sex', 'cp', 'trtbps', 'chol', 'fbs', 'restecg', 'thalachh', 'exng', 'oldpeak', 'slp',
                          'caa', 'thall'])
 
+            standardised_input = scaler.transform(input_df)
+
             heart_prediction = heart_pred_model.predict(input_df)
 
             if (heart_prediction[0] == 1):
