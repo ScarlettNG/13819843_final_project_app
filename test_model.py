@@ -8,8 +8,8 @@ class TestHeartDiseaseModel(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Load the model and scaler from disk
-        cls.model = load('D:/IP/Birkbeck/MASTER DEGREE/FINAL THESIS/Heart Disease App Code/heart_pred_model.joblib')
-        cls.scaler = load('D:/IP/Birkbeck/MASTER DEGREE/FINAL THESIS/Heart Disease App Code/std_scaler.joblib')
+        cls.model = load('heart_pred_model.joblib')
+        cls.scaler = load('std_scaler.joblib')
 
     def preprocess_input(self, input_data):
         # Convert the input data to a DataFrame
