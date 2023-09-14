@@ -24,9 +24,8 @@ with st.spinner('Loading Model...'):
 # Load our training data here and calculate the average values of each attributes
 data = pd.read_csv('heart.csv')
 
-# Initialise StandardScaler
-scaler = StandardScaler()
-scaler.fit(data.drop('output', axis=1))
+# Load the saved scaler model in
+std_scaler = load('std_scaler.joblib')
 
 healthy_avg = data[data['output'] == 0].mean()
 diseased_avg = data[data['output'] == 1].mean()
@@ -106,7 +105,7 @@ if (selected == 'Heart Disease Prediction'):
                 columns=['age', 'sex', 'cp', 'trtbps', 'chol', 'fbs', 'restecg', 'thalachh', 'exng', 'oldpeak', 'slp',
                          'caa', 'thall'])
 
-            standardised_input = scaler.transform(input_df)
+            scaled_input = std_scaler.transform(input_df)
 
             heart_prediction = heart_pred_model.predict(input_df)
 
