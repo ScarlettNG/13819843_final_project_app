@@ -7,8 +7,18 @@ level = "info"
 # By disabling query strings, sensitive information cannot be passed through the URL
 enableQueryString = false
 
+[server]
+# List of folders that should not be watched for changes. This impacts both "Run on Save" and @st.cache.
+folderWatchBlacklist = [""]
+
+# Change the type of file watcher used by Streamlit, or turn it off completely.
+fileWatcherType = "auto"
+
 # If false, will attempt to open a browser window on start.
 headless = false
+
+# Immediately share the app in such a way that allows for remote viewing but no collaboration.
+shareSessionState = false
 
 # Port where app is served.
 port = 8501
@@ -16,6 +26,9 @@ port = 8501
 # By disabling support for Cross-Origin Request Sharing (CORS) protection, this limits the app's exposure
 # to potential external threats.
 enableCORS = false
+
+# Enables support for WebSocket Same-Origin policy. If false, that policy is disabled.
+enableWebsocketCompression = true
 
 # If false, prevents Streamlit from automatically rerunning script when file changes.
 runOnSave = true
