@@ -24,3 +24,5 @@ Streamlit run 'heart_disease_app.py' or Streamlit run '\Your directory\heart_dis
 The predictive model can be found in the heart_csv(Report) file in Dataset Analysis and Models folder
 
 
+After cloning the repository, users should navigate to the project directory and run: 
+pip install -r requirements.txt
