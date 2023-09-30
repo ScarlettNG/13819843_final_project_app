@@ -16,6 +16,7 @@ Scikit-learn: 1.2.2
 Streamlit: 1.23.1
 Joblib: 1.2.0
 streamlit_option_menu
+matplotlib
 
 *To install all required packages, after cloning the repository, navigate to the project directory and run: 
 
