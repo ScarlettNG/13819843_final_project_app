@@ -107,7 +107,7 @@ if (selected == 'Heart Disease Prediction'):
 
             scaled_input = std_scaler.transform(input_df)
 
-            heart_prediction = heart_pred_model.predict(input_df)
+            heart_prediction = heart_pred_model.predict(standardised_input)
 
             if (heart_prediction[0] == 1):
                 diagnosis = 'You have signs of heart diseases. Please contact your GP as soon as possible.'
