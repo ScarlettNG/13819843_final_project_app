@@ -4,31 +4,22 @@ The heart of my web application lies in its mission to demystify heart disease f
 
 Instruction to Run The Heart Disease App Code on Your Personal Computer
 
-• Make sure that you have ‘streamlit’ installed on your computer. If not, you can install it using this command:
+Make sure that you have ‘streamlit’ installed on your computer. If not, you can install it using this command:
 
 Pip install streamlit
 
-• Some requirements for the packages installed:
 
-Numpy: 1.24.3
-Pandas: 2.0.2
-Scikit-learn: 1.2.2
-Streamlit: 1.23.1
-Joblib: 1.2.0
-streamlit_option_menu
-matplotlib
-
-*To install all required packages, after cloning the repository, navigate to the project directory and run: 
+To install all required packages, after cloning the repository, navigate to the project directory and run: 
 
 pip install -r requirements.txt
 
 
-*Navigate to the directory containing heart_disease_app.py.
+Navigate to the directory containing heart_disease_app.py.
 
 Execute the following command:
 streamlit run heart_disease_app.py
 
-*Or, if running on your PC with a specific directory path:
+Or, if running on your PC with a specific directory path:
 streamlit run \Your directory\heart_disease_app.py
 
 
