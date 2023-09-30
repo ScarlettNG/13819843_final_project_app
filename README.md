@@ -15,6 +15,7 @@ Pandas == 2.0.2
 Scikit-learn == 1.2.2
 Streamlit == 1.23.1
 Joblib == 1.2.0
+streamlit_option_menu
 • Navigate to the directory where you have saved the ‘heart_disease_app.py’ directory. To run the code, please run this command in the terminal:
 
 Streamlit run 'heart_disease_app.py' or Streamlit run '\Your directory\heart_disease_app.py' if run on your PC.
