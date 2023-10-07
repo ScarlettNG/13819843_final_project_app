@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 import utilities as utils
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
+from joblib import load
  
 # Setting the page icon and name
 st.set_page_config(
